@@ -1,0 +1,50 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "nodemon -r tsconfig-paths/register src/index.ts",
+    "exec": "concurrently \"npx tsc --watch\" \"ts-node -r tsconfig-paths/register src/index.ts\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "ethers": "^6.13.4",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.13.1",
+    "pg-hstore": "^2.3.4",
+    "pinata-web3": "^0.5.3",
+    "reflect-metadata": "^0.2.2",
+    "sequelize": "^6.37.5",
+    "sequelize-cli-typescript": "^3.2.0-c",
+    "sequelize-typescript": "^2.1.6",
+    "snarkjs": "^0.7.5",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.10.2",
+    "@types/snarkjs": "^0.7.8",
+    "@types/validator": "^13.12.2",
+    "concurrently": "^9.1.0",
+    "nodemon": "^3.1.7",
+    "sequelize-cli": "^6.3.0",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.10",
+    "typescript": "^5.7.2"
+  }
+}
