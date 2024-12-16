@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "build": "npm install && tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "start": "node dist/src/index.js",
     "dev": "nodemon -r tsconfig-paths/register src/index.ts",
     "exec": "concurrently \"npx tsc --watch\" \"ts-node -r tsconfig-paths/register src/index.ts\""
