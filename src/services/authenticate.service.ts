@@ -72,6 +72,7 @@ export async function signupService({
 }) {
   const t = await sequelize.transaction();
   try {
+    console.log(phoneNumber);
     // TODO: Check the information
     const accountIsExisted = await Account.findOne({
       where: {
@@ -115,13 +116,4 @@ export async function signupService({
     await t.rollback();
     return apiReturn.error(400, "Sign up failed");
   }
-}
-
-export async function deleteUserService({
-  phoneNumber,
-}: {
-  phoneNumber: string;
-}) {
-  try {
-  } catch (error) {}
 }

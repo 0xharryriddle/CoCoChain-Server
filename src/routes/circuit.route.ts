@@ -6,6 +6,7 @@ import {
 const router = Router();
 
 router.post("/generateProof", generateProofController);
+
 router.post("/verifyProof", verifyProofController);
 
 export default router;

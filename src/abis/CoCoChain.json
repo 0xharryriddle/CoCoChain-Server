@@ -6,9 +6,17 @@
         "name": "_manufacturer",
         "type": "address",
         "internalType": "address"
-      }
+      },
+      { "name": "verifier", "type": "address", "internalType": "address" }
     ],
     "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "VERIFIER",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
   },
   {
     "type": "function",
@@ -28,8 +36,7 @@
         "name": "farmerAddress",
         "type": "address",
         "internalType": "address"
-      },
-      { "name": "metadata", "type": "string", "internalType": "string" }
+      }
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
@@ -176,6 +183,16 @@
   },
   {
     "type": "function",
+    "name": "requestFarmer",
+    "inputs": [
+      { "name": "productId", "type": "uint256", "internalType": "uint256" },
+      { "name": "metadata", "type": "string", "internalType": "string" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
     "name": "stopAgriculturalProduct",
     "inputs": [
       { "name": "productId", "type": "uint256", "internalType": "uint256" }
@@ -193,13 +210,39 @@
     "stateMutability": "nonpayable"
   },
   {
+    "type": "function",
+    "name": "verifyProof",
+    "inputs": [
+      { "name": "_pA", "type": "uint256[2]", "internalType": "uint256[2]" },
+      {
+        "name": "_pB",
+        "type": "uint256[2][2]",
+        "internalType": "uint256[2][2]"
+      },
+      { "name": "_pC", "type": "uint256[2]", "internalType": "uint256[2]" },
+      {
+        "name": "_pubSignals",
+        "type": "uint256[2]",
+        "internalType": "uint256[2]"
+      }
+    ],
+    "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+    "stateMutability": "view"
+  },
+  {
     "type": "event",
     "name": "FarmerAdded",
     "inputs": [
       {
+        "name": "productId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
         "name": "farmerAddress",
         "type": "address",
-        "indexed": false,
+        "indexed": true,
         "internalType": "address"
       }
     ],
@@ -210,10 +253,29 @@
     "name": "FarmerBanned",
     "inputs": [
       {
+        "name": "productId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
         "name": "farmerAddress",
         "type": "address",
-        "indexed": false,
+        "indexed": true,
         "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "FarmerRequested",
+    "inputs": [
+      {
+        "name": "productId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
       }
     ],
     "anonymous": false
@@ -244,7 +306,7 @@
       {
         "name": "productId",
         "type": "uint256",
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint256"
       }
     ],
@@ -257,7 +319,7 @@
       {
         "name": "productId",
         "type": "uint256",
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint256"
       }
     ],
@@ -270,7 +332,7 @@
       {
         "name": "productId",
         "type": "uint256",
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint256"
       }
     ],

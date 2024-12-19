@@ -19,6 +19,8 @@ export const signupController = async (req: Request, res: Response) => {
   try {
     console.log("Sign up controller");
     const { phoneNumber, password, address, roleId, name } = req.body;
+
+    console.log(req.body);
     const response = await signupService({
       phoneNumber,
       password,

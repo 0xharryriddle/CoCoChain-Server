@@ -29,6 +29,7 @@ const error = (statusCode: number, message: string) => {
       },
     ],
     error: true,
+    data: {},
   };
 };
 
@@ -44,6 +45,7 @@ const validation = (errors: any[]) => {
       location: err.location,
     })),
     error: true,
+    data: {},
   };
 };
 

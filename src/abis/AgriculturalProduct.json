@@ -43,7 +43,8 @@
     "type": "function",
     "name": "delivery",
     "inputs": [
-      { "name": "productId", "type": "uint256", "internalType": "uint256" }
+      { "name": "productId", "type": "uint256", "internalType": "uint256" },
+      { "name": "metadata", "type": "string", "internalType": "string" }
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
@@ -61,7 +62,7 @@
         "type": "uint8",
         "internalType": "enum IAgriculturalProduct.EventType"
       },
-      { "name": "proofHash", "type": "bytes32", "internalType": "bytes32" },
+      { "name": "metadata", "type": "string", "internalType": "string" },
       { "name": "timestamp", "type": "uint256", "internalType": "uint256" },
       { "name": "performer", "type": "address", "internalType": "address" },
       { "name": "delivered", "type": "bool", "internalType": "bool" }
@@ -74,7 +75,7 @@
     "inputs": [
       { "name": "cocoChainId", "type": "uint256", "internalType": "uint256" },
       { "name": "productId", "type": "uint256", "internalType": "uint256" },
-      { "name": "proof", "type": "bytes32", "internalType": "bytes32" }
+      { "name": "metadata", "type": "string", "internalType": "string" }
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
@@ -93,7 +94,8 @@
     "name": "harvest",
     "inputs": [
       { "name": "cocoChainId", "type": "uint256", "internalType": "uint256" },
-      { "name": "productId", "type": "uint256", "internalType": "uint256" }
+      { "name": "productId", "type": "uint256", "internalType": "uint256" },
+      { "name": "metadata", "type": "string", "internalType": "string" }
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
@@ -111,7 +113,7 @@
         "type": "uint8",
         "internalType": "enum IAgriculturalProduct.EventType"
       },
-      { "name": "proofHash", "type": "bytes32", "internalType": "bytes32" },
+      { "name": "metadata", "type": "string", "internalType": "string" },
       { "name": "timestamp", "type": "uint256", "internalType": "uint256" },
       { "name": "performer", "type": "address", "internalType": "address" },
       { "name": "delivered", "type": "bool", "internalType": "bool" }
@@ -149,7 +151,8 @@
     "name": "plantSeed",
     "inputs": [
       { "name": "cocoChainId", "type": "uint256", "internalType": "uint256" },
-      { "name": "_tokenURI", "type": "string", "internalType": "string" }
+      { "name": "_tokenURI", "type": "string", "internalType": "string" },
+      { "name": "metadata", "type": "string", "internalType": "string" }
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
@@ -207,7 +210,7 @@
     "inputs": [
       { "name": "cocoChainId", "type": "uint256", "internalType": "uint256" },
       { "name": "productId", "type": "uint256", "internalType": "uint256" },
-      { "name": "proof", "type": "bytes32", "internalType": "bytes32" }
+      { "name": "metadata", "type": "string", "internalType": "string" }
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
@@ -253,7 +256,8 @@
     "name": "water",
     "inputs": [
       { "name": "cocoChainId", "type": "uint256", "internalType": "uint256" },
-      { "name": "productId", "type": "uint256", "internalType": "uint256" }
+      { "name": "productId", "type": "uint256", "internalType": "uint256" },
+      { "name": "metadata", "type": "string", "internalType": "string" }
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
@@ -332,9 +336,15 @@
     "name": "EventLogged",
     "inputs": [
       {
+        "name": "cocoChainId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
         "name": "productId",
         "type": "uint256",
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint256"
       },
       {
@@ -348,11 +358,7 @@
             "type": "uint8",
             "internalType": "enum IAgriculturalProduct.EventType"
           },
-          {
-            "name": "proofHash",
-            "type": "bytes32",
-            "internalType": "bytes32"
-          },
+          { "name": "metadata", "type": "string", "internalType": "string" },
           {
             "name": "timestamp",
             "type": "uint256",

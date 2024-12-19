@@ -1,3 +1,5 @@
+import { GATEWAY_URL } from "./constant.util";
+
 export const manufacturer = ({
   name,
   address,
@@ -75,3 +77,12 @@ export const agriculturalProduct = ({
 
   return JSON.stringify(json);
 };
+
+export function getPinataFileName(id: number) {
+  const currentTime = new Date().getTime();
+  return `${currentTime}-${id.toString()}`;
+}
+
+export function getPinataURL(cid: string) {
+  return `https://${GATEWAY_URL}/ipfs/${cid}`;
+}
