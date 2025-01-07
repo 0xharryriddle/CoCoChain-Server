@@ -7,8 +7,10 @@ import AuthenticateRouter from "@routes/authenticate.route";
 import CoCoChainRouter from "@routes/cocochain.route";
 import FertilizeRoute from "@routes/fertilize.route";
 import ProductRoute from "@routes/product.route";
+import PingRoute from "@routes/ping.route";
 
 const initialRoutes = (app: Express) => {
+  app.use("/api/ping", PingRoute);
   app.use("/api/pinata", PinataRouter);
   app.use("/api/circuit", CircuitRouter);
   app.use("/api/authenticate", AuthenticateRouter);

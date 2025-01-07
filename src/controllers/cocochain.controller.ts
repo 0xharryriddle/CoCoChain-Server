@@ -98,8 +98,6 @@ export async function requestFarmerController(
 
     const ipfsURL = getPinataURL((uploadImageResponse.data as any).cid);
 
-    console.log(ipfsURL);
-
     const metadata = farmerTemplate({
       name,
       address,
